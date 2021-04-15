@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\v1\UserController;
+use App\Http\Controllers\v1\CategoryController;
+use App\Http\Controllers\v1\ProviderController;
+use App\Http\Controllers\v1\ProductController;
+use App\Http\Controllers\v1\ClientController;
+use App\Http\Controllers\v1\PurchaseController;
+use App\Http\Controllers\v1\SaleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +23,15 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::resources([
+    'user'       => UserController::class,
+    'categories' => CategoryController::class,
+    'providers'  => ProviderController::class,
+    'products'   => ProductController::class,
+    'clients'    => ClientController::class,
+    'purchases'  => PurchaseController::class,
+    'sales'      => SaleController::class,
+]);
+
