@@ -13,13 +13,13 @@ class CategoryController extends Controller
     {
         //
         $categories = Category::get();
-        return view('admin.category.index', compact('categories'));
+        return view('category.index', compact('categories'));
     }
 
     public function create()
     {
         //
-        return view('admin.category.create');
+        return view('category.create');
     }
 
     public function store(StoreRequest $request)
@@ -31,12 +31,12 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        return view('admin.category.show', compact('category'));
+        return view('category.show', compact('category'));
     }
 
     public function edit(Category $category)
     {
-        return view('admin.category.edit', compact('category'));
+        return view('category.edit', compact('category'));
 
     }
 
