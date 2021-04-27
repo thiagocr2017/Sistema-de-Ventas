@@ -13,14 +13,14 @@ class ProviderController extends Controller
     public function index()
     {
         //
-        $providers = Provider::get();
-        return view('admin.provider.index', compact('providers'));
+        $providers = Provider::paginate(10);
+        return view('provider.index', compact('providers'));
     }
 
     public function create()
     {
         //
-        return view('admin.provider.create');
+        return view('provider.create');
     }
 
     public function store(StoreRequest $request)
@@ -32,12 +32,12 @@ class ProviderController extends Controller
 
     public function show(Provider $provider)
     {
-        return view('admin.provider.show', compact('provider'));
+        return view('provider.show', compact('provider'));
     }
 
     public function edit(Provider $provider)
     {
-        return view('admin.provider.edit', compact('provider'));
+        return view('provider.edit', compact('provider'));
 
     }
 

@@ -14,8 +14,8 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::get();
-        return view('admin.product.index', compact('products'));
+        $products = Product::paginate(10);
+        return view('product.index', compact('products'));
     }
 
     public function create()
@@ -23,7 +23,7 @@ class ProductController extends Controller
         //
         $categories = Category::get();
         $providers = Provider::get();
-        return view('admin.product.create', compact('categories','providers'));
+        return view('product.create', compact('categories','providers'));
     }
 
     public function store(StoreRequest $request)
@@ -35,14 +35,14 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-        return view('admin.product.show', compact('product'));
+        return view('product.show', compact('product'));
     }
 
     public function edit(Product $product)
     {
         $categories = Category::get();
         $providers = Provider::get();
-        return view('admin.product.edit', compact('product','categories','providers'));
+        return view('product.edit', compact('product','categories','providers'));
 
     }
 

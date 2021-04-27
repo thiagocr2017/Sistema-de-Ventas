@@ -12,7 +12,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $categories = Category::get();
+        $categories = Category::orderBy('id', 'desc')->paginate(5);
         return view('category.index', compact('categories'));
     }
 
@@ -31,7 +31,10 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        return view('category.show', compact('category'));
+        // dd($category->products()->paginate(5));
+        $products = $category->products()->paginate(5);
+        return view('category.show')->with('data', ['category' => $category, 'products' => $products]);
+        // return view('category.show',compact('category'));
     }
 
     public function edit(Category $category)

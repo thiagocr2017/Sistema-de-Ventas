@@ -14,15 +14,15 @@ class PurchaseController extends Controller
     public function index()
     {
         //
-        $purchases = Purchase::get();
-        return view('admin.purchase.index', compact('purchases'));
+        $purchases = Purchase::paginate(10);
+        return view('purchase.index', compact('purchases'));
     }
 
     public function create()
     {
         //
         $providers = Provider::get();
-        return view('admin.purchase.create', compact('providers'));
+        return view('purchase.create', compact('providers'));
     }
 
     public function store(Request $request)
@@ -46,14 +46,14 @@ class PurchaseController extends Controller
     public function show(Purchase $purchase)
     {
         //
-        return view('admin.purchase.show', compact('purchase'));
+        return view('purchase.show', compact('purchase'));
     }
 
     public function edit(Purchase $purchase)
     {
         //
         $providers = Provider::get();
-        return view('admin.purchase.edit', compact('purchase','providers'));
+        return view('purchase.edit', compact('purchase','providers'));
     }
 
     public function update(Request $request, Purchase $purchase)

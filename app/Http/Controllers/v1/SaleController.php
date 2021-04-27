@@ -12,15 +12,15 @@ class SaleController extends Controller
     public function index()
     {
         //
-        $sales = Sale::get();
-        return view('admin.sale.index', compact('sales'));
+        $sales = Sale::paginate(10);
+        return view('sale.index', compact('sales'));
     }
 
     public function create()
     {
         //
         $clients = Client::get();
-        return view('admin.sale.create', compact('clients'));
+        return view('sale.create', compact('clients'));
     }
 
     public function store(Request $request)
@@ -39,20 +39,20 @@ class SaleController extends Controller
 
         $purchase->saleDetails()->createMany($results);
 
-        return redirect()->route('admin.sale.index');
+        return redirect()->route('sale.index');
     }
 
     public function show(Sale $sale)
     {
         //
-        return view('admin.sale.show', compact('sales'));
+        return view('sale.show', compact('sales'));
     }
 
     public function edit(Sale $sale)
     {
         //
         $clients = Client::get();
-        return view('admin.sale.edit', compact('sale','clients'));
+        return view('sale.edit', compact('sale','clients'));
     }
 
     public function update(Request $request, Sale $sale)
