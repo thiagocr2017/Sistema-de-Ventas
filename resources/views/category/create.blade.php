@@ -1,9 +1,17 @@
 @extends('components.layout')
 @section('title', 'Nueva Categoría')
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('categories.create') }}
+@endsection
 @section('content')
 <div class="bg-white p-6 mt-4 rounded-lg shadow-md">
-  <div class="flex">
-    <p>Nueva Categoría</p>
+  <div class="">
+    <h3 class="text-lg leading-6 font-medium text-gray-900">
+      Nueva Categoría
+    </h3>
+    <p class="mt-1 max-w-2xl text-xs text-gray-500">
+      Digita un nombre e decripción para la categoría.
+    </p>
   </div>
   <form method="POST" action="{{ route('categories.store') }}">
       @csrf
@@ -18,8 +26,4 @@
     </div>
   </form>
 </div>
-@endsection
-
-@section('script')
-
 @endsection

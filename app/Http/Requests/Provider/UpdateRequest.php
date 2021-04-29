@@ -26,10 +26,13 @@ class UpdateRequest extends FormRequest
         return [
             //
              'name' => 'required|string|max:250',
+             'description' => 'required|string|max:250',
              'email' => 'nullable|string|unique:providers,email,'.$this->route('provider')->id.'|max:200',
              'ruc_number' => 'required|string|min:11|unique:providers,ruc_number,'.$this->route('provider')->id.'|max:11',
              'address' => 'nullable|string|max:255',
-             'phone' => 'required|string|min:10|unique:providers,phone,'.$this->route('provider')->id.'|max:10',
+             'state' => 'nullable|string|max:50',
+             'country' => 'nullable|string|max:50',
+             'phone' => 'required|string|min:12|unique:providers,phone,'.$this->route('provider')->id.'|max:12',
         ];
     }
 
@@ -40,6 +43,10 @@ class UpdateRequest extends FormRequest
             'name.required' => 'Este campo es requerido',
             'name.string' => 'El valor no es correcto',
             'name.max' => 'Solo se permite 250 caracteres',
+            //
+            'description.required' => 'Este campo es requerido',
+            'description.string' => 'El valor no es correcto',
+            'description.max' => 'Solo se permite 250 caracteres',
             // 
             'email.email' => 'El valor no es un email valido',
             'name.string' => 'El valor no es correcto',
@@ -55,10 +62,16 @@ class UpdateRequest extends FormRequest
             'address.string' => 'El valor no es correcto',
             'address.max' => 'Solo se permite 250 caracteres',
             // 
+            'state.string' => 'El valor no es correcto',
+            'state.max' => 'Solo se permite 50 caracteres',
+            // 
+            'country.string' => 'El valor no es correcto',
+            'country.max' => 'Solo se permite 50 caracteres',
+            // 
             'phone.required' => 'Este campo es requerido',
             'phone.string' => 'El valor no es correcto',
-            'phone.max' => 'Solo se permite 10 caracteres',
-            'phone.min' => 'Se requier 10 caracteres',
+            'phone.max' => 'Solo se permite 12 caracteres',
+            'phone.min' => 'Se requier 12 caracteres',
             'phone.unique' => 'Ya se encuentra registrado',
         ];
     }

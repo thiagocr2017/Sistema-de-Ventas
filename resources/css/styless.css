@@ -1,3 +1,56 @@
-.tb-line tbody tr:nth-child(2n+1) {
-    @apply bg-gray-50;
+/* TABLE STYLESS */
+.tb {
+/* size */
+    width: 100%;
+/* display */
+    table-layout: fixed;
 }
+
+table thead th{
+/* size */
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+/* text */
+    text-align: left;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 500;
+    color: rgba(107, 114, 128);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+table tbody tr td{
+/* size */
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    white-space: nowrap;
+}
+
+.divider-y{
+/* border */
+    border-bottom-width: 1px;
+    border-color: rgb(201, 201, 201);
+}
+
+.tb-line tbody tr:nth-child(2n+1) {
+    @apply bg-white;
+}
+/* END TABLE STYLESS */
+
+/* CARD STYLESS */
+.card {
+    --tw-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+    background-color: rgba(255, 255, 255, 1);
+    border-radius: 0.5rem;
+}
+.card-head {
+    padding: 1rem;
+    display: flex;
+}
+/* END CARD STYLESS */

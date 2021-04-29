@@ -1,5 +1,8 @@
 @extends('components.layout')
 @section('title', 'AppTitle')
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('dashboard') }}
+@endsection
 @section('content')
     <div class="container p-6 ">
       <h1>Dashboard</h1>

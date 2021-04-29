@@ -13,7 +13,7 @@ class ProviderController extends Controller
     public function index()
     {
         //
-        $providers = Provider::paginate(10);
+        $providers = Provider::orderBy('id','desc')->paginate(10);
         return view('provider.index', compact('providers'));
     }
 
@@ -32,7 +32,8 @@ class ProviderController extends Controller
 
     public function show(Provider $provider)
     {
-        return view('provider.show', compact('provider'));
+        $pages = 10;
+        return view('provider.show', compact('provider', 'pages'));
     }
 
     public function edit(Provider $provider)
