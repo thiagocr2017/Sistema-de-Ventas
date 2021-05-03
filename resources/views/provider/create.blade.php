@@ -1,9 +1,12 @@
 @extends('components.layout')
 @section('title', 'Nueva Proveedor')
+@section('breadcrumbs')
+    {{ Breadcrumbs::render('providers.create') }}
+@endsection
 @section('content')
-<div class="card">
+<div class="card mb-4">
   <div class="card-head flex-col">
-    <h3 class="text-lg leading-6 font-medium text-gray-900">
+    <h3 class="text-lg font-medium text-gray-900">
       Nueva Proveedor
     </h3>
     <p class="mt-1 max-w-2xl text-xs text-gray-500">

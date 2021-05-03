@@ -1,6 +1,6 @@
 @if(Route::is('providers.create'))
 <!-- Form for Create -->
-<div class="col-span-6 sm:col-span-3 mt-4">
+<div class="col-span-6 sm:col-span-3">
   <label for="name" class="block text-sm font-medium text-gray-700">
     Nombre
   </label>
@@ -53,7 +53,7 @@
 <!-- End Form for Create -->
 @else
 <!-- Form for Edit -->
-<div class="col-span-6 sm:col-span-3 mt-4">
+<div class="col-span-6 sm:col-span-3">
   <label for="name" class="block text-sm font-medium text-gray-700">
     Nombre
   </label>
@@ -67,7 +67,7 @@
     <textarea id="description" name="description" rows="3" class="pl-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Decripción de un proveedor">{{$provider->description}}</textarea>
   </div>
 </div>
-<div class="col-span-6 sm:col-span-3 mt-4">
+<div class="col-span-6 sm:col-span-3">
   <label for="phone" class="block text-sm font-medium text-gray-700">
     Teléfono
   </label>

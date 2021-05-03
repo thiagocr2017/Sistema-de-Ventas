@@ -25,8 +25,9 @@ class ProductFactory extends Factory
             //
             'code'=> $this->faker->ean13,
             'name' => $this->faker->word.' '.$this->faker->numerify('####'),
+            'description' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
             'stock' => $this->faker->randomDigit,
-            'image' => $this->faker->imageUrl($width = 640, $height = 480, 'boat'),
+            'image' => $this->faker->unique()->numberBetween($min = 1, $max = 18).'.jpg',
             'sell_price' => $this->faker->numberBetween($min = 1000000, $max = 9000000),
             'status' => $this->faker->randomElement($array = array ('ACTIVE','DEACTIVATED')),
             'category_id' => $this->faker->numberBetween($min = 1, $max = 10),

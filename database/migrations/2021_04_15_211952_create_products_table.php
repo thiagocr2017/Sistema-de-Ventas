@@ -17,7 +17,8 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('code')->unique();
             $table->string('name')->unique();
-            $table->decimal('stock',12,2);
+            $table->string('description');
+            $table->decimal('stock',12,2)->default(0);
             $table->string('image');
             $table->decimal('sell_price',12,2);
             $table->enum('status', ['ACTIVE','DEACTIVATED'])->default('ACTIVE');

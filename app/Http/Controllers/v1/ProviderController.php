@@ -33,7 +33,11 @@ class ProviderController extends Controller
     public function show(Provider $provider)
     {
         $pages = 10;
-        return view('provider.show', compact('provider', 'pages'));
+        $data = $provider->products;
+        // dd($data->toJson(JSON_PRETTY_PRINT));
+        $data = $data->toJson(JSON_PRETTY_PRINT);
+        
+        return view('provider.show', compact('provider', 'pages', 'data'));
     }
 
     public function edit(Provider $provider)

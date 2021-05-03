@@ -1,18 +1,18 @@
 @extends('components.layout')
-@section('title', 'Proveedores')
+@section('title', 'Productos')
 @section('breadcrumbs')
-    {{ Breadcrumbs::render('providers.index') }}
+    {{ Breadcrumbs::render('products.index') }}
 @endsection
 @section('content')
-<!-- Provider List -->
+<!-- Product List -->
 <div class="card mb-4">
   <!-- Header Info -->
   <div class="card-head">
     <div class="flex-grow">
       <h3 class="text-lg font-medium text-gray-900">
-      Lista de Proveedor</h3>
+      Lista de Productos</h3>
       <p class="mt-1 max-w-2xl text-xs text-gray-500">
-        Aqui podrás crear un nuevo proveedor o editar e eliminar un existente además podrás consultar la lista de productos que pertenece a un proveedor especifica.
+        Aqui podrás crear un producto o editar e eliminar un existente además podras consultar algunas informaciones del producto.
       </p>
     </div>
     <!-- Dropdown Button -->
@@ -25,8 +25,8 @@
           </button>
         <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
           <div class="py-1" role="none" x-show="open">
-            <a href="{{ route('providers.create') }}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">
-              Nueva Proveedor
+            <a href="{{ route('products.create') }}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">
+              Nueva Producto
             </a>
             <!-- <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
               Support
@@ -41,41 +41,84 @@
     <!-- Dropdown Button -->
   </div>
   <!-- Body Info -->
-  <!-- Table of Categories -->
+  <!-- Table of products -->
   <table class="table w-full table-fixed">
       <thead class="table-header-group bg-gray-200">
-        <th class="table-cell" >
-          Nombre</th>
-        <th class="table-cell" >
-          Descripción</th>
-        <th class="table-cell w-28">
-          Acciones</th>
+      <th class="lg:table-cell hidden w-24">
+        Imagen</th>
+        <th class="table-cell">
+        Código</th>
+        <th class="lg:table-cell hidden">
+        Nombre</th>
+        <th class="table-cell text-center w-24">
+        Precio</th>
+        <th class="table-cell text-center w-24">
+        Stock</th>
+        <th class="table-cell w-24">
+        Status</th>
+        <th class="table-cell w-24">
+        Acciones</th>
       </thead>
     <tbody class="bg-white">
       <div class="table-row-group">
-        @foreach ($providers as $provider)
+        @foreach ($products as $product)
           <tr class="table-row divider-y">
+            <td class="lg:table-cell hidden">
+              @if(file_exists(public_path('images/products/').$product->image))
+              <img class="rounded-full sm:h-10 sm:w-10" src="{{asset('images/products/'.$product->image)}}">
+              @else
+              <span class="p-1 h-8 w-8 sm:h-10 sm:w-10 sm:p-2 px-2 inline-flex leading-5 font-semibold rounded-full bg-gray-200 text-grey-800">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                </svg>
+              </span>
+              @endif
+            </td>
             <td class="table-cell">
               <div class="text-sm font-medium text-gray-900">
-                <a href="{{route('providers.show', $provider)}}" class=" text-indigo-500" title="Show">
-                {{$provider->name}}</a>
+                    <a href="{{route('products.show', $product->id)}}" class=" text-indigo-500" title="Show">
+                    <h4>{{$product->code}}</h4>
+                    </a>  
+              </div>    
+            </td>
+            <td class="lg:table-cell hidden">
+              <div class="text-sm font-small text-gray-900">
+                    <p class="truncate">{{$product->name}}</p>
               </div>
             </td>
             <td class="table-cell">
-            <div class="text-sm font-light text-gray-500">
-              <p class="truncate">{{$provider->description}}</p>
-            </div>
+              <div class="text-sm text-center text-gray-500">
+                {{$product->sell_price}}
+              </div>
             </td>
             <td class="table-cell">
+              <div class="text-sm text-center text-gray-500">
+                {{$product->stock}}
+              </div>
+            </td>
+            @if( $product->status === "ACTIVE")
+            <td class="table-cell">
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-600">
+                Activo
+              </span>
+            </td>
+            @else
+            <td class="table-cell">
+              <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-600">
+                Inactivo
+              </span>
+            </td>
+            @endif
+            <td class="table-cell">
               <span class="px-2 inline-flex items-center">
-                <a href="{{route('providers.edit', $provider)}}" class=" text-indigo-400" title="Edit">
+                <a href="{{route('products.edit', $product)}}" class=" text-indigo-400" title="Edit">
                   <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                   </svg>
                 </a>
               </span>
               <span class="inline-flex items-center">
-                <form action="{{route('providers.destroy',$provider->id)}}" method="POST">
+                <form action="{{route('products.destroy',$product->id)}}" method="POST">
                   @method('DELETE')
                   @csrf
                 <button type="submit" value="Delete" class=" text-red-400">
@@ -92,7 +135,7 @@
       </div>
     </tbody>
   </table>
-  @if($providers->isEmpty())
+  @if($products->isEmpty())
     <div class="flex justify-center">
       <div class="p-4 font-semibold text-xs">
         <p>No existe ítem para mostrar.</p>
@@ -100,8 +143,8 @@
     </div>
   @endif
   <div class="p-2 bg-gray-200">
-    {{$providers->links()}}
+    {{$products->links()}}
   </div>
-  <!-- Table of Categories -->
+  <!-- Table of products -->
 </div>
 @endsection

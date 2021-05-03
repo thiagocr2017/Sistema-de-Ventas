@@ -51,3 +51,27 @@ Breadcrumbs::for('providers.edit', function ($trail, $provider) {
     $trail->parent('providers.index', $provider);
     $trail->push($provider->name, route('providers.edit', $provider->id));
 });
+
+// Dashboard > Producto
+Breadcrumbs::for('products.index', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Producto', route('products.index'));
+});
+
+// Dashboard > Producto > Upload Producto
+Breadcrumbs::for('products.create', function ($trail) {
+    $trail->parent('products.index');
+    $trail->push('Producto', route('products.create'));
+});
+
+// Dashboard > Producto > [Producto]
+Breadcrumbs::for('products.show', function ($trail, $product) {
+    $trail->parent('products.index', $product);
+    $trail->push($product->code, route('products.show', $product->id));
+});
+
+// Dashboard > Producto > [Producto] > Edit Producto
+Breadcrumbs::for('products.edit', function ($trail, $product) {
+    $trail->parent('products.index', $product);
+    $trail->push($product->code, route('products.edit', $product->id));
+});

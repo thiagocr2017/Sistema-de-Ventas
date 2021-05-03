@@ -24,7 +24,6 @@ Route::get('/', function () {
     return view('index');
 })->name('dashboard');
 
-
 Route::resources([
     'user'       => UserController::class,
     'categories' => CategoryController::class,

@@ -13,7 +13,7 @@
         <!--Main Content-->
         <div class="w-full md:w-4/5 bg-gray-100">
             <div class="container mx-auto bg-gray-100 pt-16 px-6">
-                <div class="grid gap-4 mb-4">
+                <div class="grid gap-4">
                     <!-- Breadcrumb -->
                     <!-- <nav aria-label="breadcrumb" class="bg-gray-800 w-full p-2 rounded-sm"> -->
                     @yield('breadcrumbs')

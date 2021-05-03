@@ -1,5 +1,5 @@
 @if(Route::is('categories.create'))
-<div class="col-span-6 sm:col-span-3 mt-4">
+<div class="">
   <label for="name" class="block text-sm font-medium text-gray-700">Nombre</label>
   <input type="text" name="name" id="name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md p-2" placeholder="Nombre de una categoría">
 </div>
@@ -12,7 +12,7 @@
   </div>
 </div>
 @else
-<div class="col-span-6 sm:col-span-3 mt-4">
+<div class="">
   <label for="name" class="block text-sm font-medium text-gray-700">
   Nombre</label>
   <input type="text" name="name" id="name" value="{{$category->name}}" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md p-2" placeholder="Nombre de una categoría">

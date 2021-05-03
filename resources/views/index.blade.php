@@ -4,10 +4,9 @@
     {{ Breadcrumbs::render('dashboard') }}
 @endsection
 @section('content')
-    <div class="container p-6 ">
-      <h1>Dashboard</h1>
+    <div class="container">
       <!-- Elementos de primera fila -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mt-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
         <div class="bg-white border-b-4 border-green-800 p-6 rounded-lg ">
           <p>Ventas</p>
           <p class=" text-xl font-bold mb-2">$62.500,00</p>
