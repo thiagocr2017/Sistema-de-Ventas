@@ -75,3 +75,27 @@ Breadcrumbs::for('products.edit', function ($trail, $product) {
     $trail->parent('products.index', $product);
     $trail->push($product->code, route('products.edit', $product->id));
 });
+
+// Dashboard > Cliente
+Breadcrumbs::for('clients.index', function ($trail) {
+    $trail->parent('dashboard');
+    $trail->push('Cliente', route('clients.index'));
+});
+
+// Dashboard > Cliente > Upload Cliente
+Breadcrumbs::for('clients.create', function ($trail) {
+    $trail->parent('clients.index');
+    $trail->push('Cliente', route('clients.create'));
+});
+
+// Dashboard > Cliente > [Cliente]
+Breadcrumbs::for('clients.show', function ($trail, $client) {
+    $trail->parent('clients.index', $client);
+    $trail->push($client->name, route('clients.show', $client->id));
+});
+
+// Dashboard > Cliente > [Cliente] > Edit Cliente
+Breadcrumbs::for('clients.edit', function ($trail, $client) {
+    $trail->parent('clients.index', $client);
+    $trail->push($client->name, route('clients.edit', $client->id));
+});

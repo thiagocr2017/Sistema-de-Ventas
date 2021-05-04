@@ -27,12 +27,12 @@ class UpdateRequest extends FormRequest
             //
              'name' => 'required|string|max:250',
              'description' => 'required|string|max:250',
-             'email' => 'nullable|string|unique:providers,email,'.$this->route('provider')->id.'|max:200',
+             'email' => 'nullable|email:rfc,dns|unique:providers,email,'.$this->route('provider')->id.'|max:200',
              'ruc_number' => 'required|string|min:11|unique:providers,ruc_number,'.$this->route('provider')->id.'|max:11',
              'address' => 'nullable|string|max:255',
              'state' => 'nullable|string|max:50',
              'country' => 'nullable|string|max:50',
-             'phone' => 'required|string|min:12|unique:providers,phone,'.$this->route('provider')->id.'|max:12',
+             'phone' => 'required|string|regex:/[0-9]{11}/|min:12|unique:providers,phone,'.$this->route('provider')->id.'|max:12',
         ];
     }
 
@@ -49,7 +49,6 @@ class UpdateRequest extends FormRequest
             'description.max' => 'Solo se permite 250 caracteres',
             // 
             'email.email' => 'El valor no es un email valido',
-            'name.string' => 'El valor no es correcto',
             'email.max' => 'Solo se permite 200 caracteres',
             'email.unique' => 'Ya se encuentra registrado',
             // 
@@ -70,6 +69,7 @@ class UpdateRequest extends FormRequest
             // 
             'phone.required' => 'Este campo es requerido',
             'phone.string' => 'El valor no es correcto',
+            'phone.regex' => 'El teléfono debe tener el formato +12345678901',
             'phone.max' => 'Solo se permite 12 caracteres',
             'phone.min' => 'Se requier 12 caracteres',
             'phone.unique' => 'Ya se encuentra registrado',

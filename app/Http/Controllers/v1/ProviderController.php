@@ -34,7 +34,6 @@ class ProviderController extends Controller
     {
         $pages = 10;
         $data = $provider->products;
-        // dd($data->toJson(JSON_PRETTY_PRINT));
         $data = $data->toJson(JSON_PRETTY_PRINT);
         
         return view('provider.show', compact('provider', 'pages', 'data'));

@@ -25,12 +25,14 @@ class StoreRequest extends FormRequest
     {
         return [
             //
-            'name' => 'string|required|max:250',
-            'dni' => 'string|required|unique:clients|max:11|min:11',
-            'ruc' => 'string|required|unique:clients|max:11|min:11',
-            'address' => 'string|required|max:250',
-            'phone' => 'string|required|unique:clients|max:10|min:10',
-            'email' => 'string|required|unique:clients|max:250|email:rfc,dns'
+            'name' => 'required|string|max:250',
+            'dni' => 'required|alpha_num|unique:clients|max:11|min:9',
+            'ruc' => 'nullable|alpha_num|unique:clients|max:11|min:9',
+            'address' => 'nullable|string|max:255',
+            'state' => 'nullable|string|max:50',
+            'country' => 'nullable|string|max:50',
+            'phone' => 'required|string|regex:/[0-9]{11}/|unique:clients|max:14|min:11',
+            'email' => 'required|string|unique:clients|max:250|email:rfc,dns'
         ];
     }
 
@@ -42,27 +44,32 @@ class StoreRequest extends FormRequest
             'name.required' => 'Este campo es requerido',
             'name.max' => 'Solo se permite 250 caracteres',
             // 
-            'dni.string' => 'El valor no es correcto',
+            'dni.alpha_num' => 'El valor no es correcto',
             'dni.required' => 'Este campo es requerido',
             'dni.unique' => 'Ya se encuentra registrado',
             'dni.max' => 'Solo se permite 11 caracteres',
-            'dni.min' => 'Se requier 11 caracteres',
+            'dni.min' => 'Se requier 9 caracteres',
             // 
-            'ruc.string' => 'El valor no es correcto',
-            'ruc.required' => 'Este campo es requerido',
+            'ruc.alpha_num' => 'El valor no es correcto',
             'ruc.unique' => 'Ya se encuentra registrado',
             'ruc.max' => 'Solo se permite 11 caracteres',
-            'ruc.min' => 'Se requier 11 caracteres',
+            'ruc.min' => 'Se requier 9 caracteres',
             // 
             'address.string' => 'El valor no es correcto',
-            'address.required' => 'Este campo es requerido',
             'address.max' => 'Solo se permite 250 caracteres',
+            // 
+            'state.string' => 'El valor no es correcto',
+            'state.max' => 'Solo se permite 50 caracteres',
+            // 
+            'country.string' => 'El valor no es correcto',
+            'country.max' => 'Solo se permite 50 caracteres',
             // 
             'phone.string' => 'El valor no es correcto',
             'phone.required' => 'Este campo es requerido',
+            'phone.regex' => 'El teléfono debe tener el formato +12345678901',
             'phone.unique' => 'Ya se encuentra registrado',
-            'phone.max' => 'Solo se permite 10 caracteres',
-            'phone.min' => 'Se requier 10 caracteres',
+            'phone.max' => 'Solo se permite 14 caracteres',
+            'phone.min' => 'Se requier 11 caracteres',
             // 
             'email.string' => 'El valor no es correcto',
             'email.required' => 'Este campo es requerido',

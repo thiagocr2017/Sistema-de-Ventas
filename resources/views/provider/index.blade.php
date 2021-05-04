@@ -26,7 +26,7 @@
         <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
           <div class="py-1" role="none" x-show="open">
             <a href="{{ route('providers.create') }}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">
-              Nueva Proveedor
+              Nuevo Proveedor
             </a>
             <!-- <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
               Support
@@ -48,6 +48,8 @@
           Nombre</th>
         <th class="table-cell" >
           Descripción</th>
+        <th class="table-cell text-center">
+        Productos</th>
         <th class="table-cell w-28">
           Acciones</th>
       </thead>
@@ -55,15 +57,20 @@
       <div class="table-row-group">
         @foreach ($providers as $provider)
           <tr class="table-row divider-y">
-            <td class="table-cell">
-              <div class="text-sm font-medium text-gray-900">
+            <td class="table-cell truncate">
+              <div class="text-sm font-medium text-gray-900 ">
                 <a href="{{route('providers.show', $provider)}}" class=" text-indigo-500" title="Show">
                 {{$provider->name}}</a>
               </div>
             </td>
-            <td class="table-cell">
+            <td class="table-cell truncate">
             <div class="text-sm font-light text-gray-500">
-              <p class="truncate">{{$provider->description}}</p>
+              <p>{{$provider->description}}</p>
+            </div>
+            </td>
+            <td class="table-cell">
+            <div class="text-sm text-center text-gray-500 font-light">
+              <p class="">{{$provider->products()->count()}}</p>
             </div>
             </td>
             <td class="table-cell">

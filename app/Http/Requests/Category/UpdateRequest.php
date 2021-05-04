@@ -26,7 +26,7 @@ class UpdateRequest extends FormRequest
         return [
             //
             'name' => 'required|string|max:50',
-            'description' => 'nullable|string|max:250'
+            'description' => 'required|string|max:250'
         ];
     }
 
@@ -37,6 +37,7 @@ class UpdateRequest extends FormRequest
             'name.required' => 'Este campo es requerido',
             'name.string' => 'El valor no es correcto',
             'name.max' => 'Solo se permite 50 caracteres', 
+            'description.required' => 'Este campo es requerido',
             'description.string' => 'El valor no es correcto',
             'description.max' => 'Solo se permite 250 caracteres',
         ];

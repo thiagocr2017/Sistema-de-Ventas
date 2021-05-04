@@ -26,7 +26,7 @@
         <div class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
           <div class="py-1" role="none" x-show="open">
             <a href="{{ route('products.create') }}" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">
-              Nueva Producto
+              Nuevo Producto
             </a>
             <!-- <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
               Support
@@ -56,7 +56,7 @@
         Stock</th>
         <th class="table-cell w-24">
         Status</th>
-        <th class="table-cell w-24">
+        <th class="table-cell w-28">
         Acciones</th>
       </thead>
     <tbody class="bg-white">
@@ -74,16 +74,16 @@
               </span>
               @endif
             </td>
-            <td class="table-cell">
+            <td class="table-cell truncate">
               <div class="text-sm font-medium text-gray-900">
                     <a href="{{route('products.show', $product->id)}}" class=" text-indigo-500" title="Show">
                     <h4>{{$product->code}}</h4>
                     </a>  
               </div>    
             </td>
-            <td class="lg:table-cell hidden">
+            <td class="lg:table-cell truncate hidden">
               <div class="text-sm font-small text-gray-900">
-                    <p class="truncate">{{$product->name}}</p>
+                  {{$product->name}}
               </div>
             </td>
             <td class="table-cell">

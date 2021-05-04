@@ -5,12 +5,18 @@
     Código
   </label>
   <input type="text" name="code" id="code" autocomplete="given-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md p-2" placeholder="Código de un producto" require>
+  @error('code')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="mt-4">
   <label for="name" class="block text-sm font-medium text-gray-700">
     Nombre
   </label>
   <input type="text" name="name" id="name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md p-2" placeholder="Nombre de un producto" require>
+  @error('name')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="mt-4">
   <label for="description" class="block text-sm font-medium text-gray-700">
@@ -19,18 +25,27 @@
   <div class="mt-1">
     <textarea id="description" name="description" rows="3" class="pl-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Decripción de un producto"></textarea>
   </div>
+  @error('description')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="col-span-6 sm:col-span-3 mt-4">
   <label for="stock" class="block text-sm font-medium text-gray-700">
     Stock
   </label>
   <input type="number" name="stock" id="stock" autocomplete="given-stock" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md p-2" placeholder="0" require>
+  @error('stock')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="col-span-6 sm:col-span-3 mt-4">
   <label for="sell_price" class="block text-sm font-medium text-gray-700">
     Precio de Venta
   </label>
   <input type="number" name="sell_price" id="sell_price" autocomplete="given-sell_price" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md p-2" placeholder="0" require>
+  @error('sell_price')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="col-span-6 sm:col-span-3 mt-4">
   <label for="category_id" class="block text-sm font-medium text-gray-700">
@@ -42,6 +57,9 @@
     <option value="{{ $category->id }}"> {{ $category->name }} </option>
     @endforeach
   </select>
+  @error('category_id')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="col-span-6 sm:col-span-3 mt-4">
   <label for="provider_id" class="block text-sm font-medium text-gray-700">
@@ -53,6 +71,9 @@
     <option value="{{ $provider->id }}"> {{ $provider->name }} </option>
     @endforeach
   </select>
+  @error('provider_id')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="col-span-6 sm:col-span-3 mt-4">
   <label for="status" class="block text-sm font-medium text-gray-700">
@@ -62,6 +83,9 @@
     <option value="ACTIVE">Activo</option>
     <option value="DEACTIVATED">Inactivo</option>
   </select>
+  @error('status')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="col-span-6 sm:col-span-3 mt-4">
   <label for="image" class="block text-sm font-medium text-gray-700">
@@ -79,6 +103,9 @@
       <span id="file-chosen" class="flex items-center mx-2 font-light"></span>
     </div>
   </div>
+  @error('image')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <!-- End Form for Create -->
 @else
@@ -99,12 +126,18 @@
     Código
   </label>
   <input type="text"value="{{$product->code}}" name="code" id="code" autocomplete="given-code" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md p-2" placeholder="Código de un producto" require>
+  @error('code')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="mt-4">
   <label for="name" class="block text-sm font-medium text-gray-700">
     Nombre
   </label>
   <input type="text"value="{{$product->name}}" name="name" id="name" autocomplete="given-name" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md p-2" placeholder="Nombre de un producto" require>
+  @error('name')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="mt-4">
   <label for="description" class="block text-sm font-medium text-gray-700">
@@ -113,18 +146,27 @@
   <div class="mt-1">
     <textarea id="description" name="description" rows="3" class="pl-2 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" placeholder="Decripción de un producto">{{$product->description}}</textarea>
   </div>
+  @error('description')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="col-span-6 sm:col-span-3 mt-4">
   <label for="stock" class="block text-sm font-medium text-gray-700">
     Stock
   </label>
   <input type="text"value="{{$product->stock}}" name="stock" id="stock" autocomplete="given-stock" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md p-2" placeholder="0" require>
+  @error('stock')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="col-span-6 sm:col-span-3 mt-4">
   <label for="sell_price" class="block text-sm font-medium text-gray-700">
     Precio de Venta
   </label>
   <input type="text"value="{{$product->sell_price}}" name="sell_price" id="sell_price" autocomplete="given-sell_price" class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md p-2" placeholder="0" require>
+  @error('sell_price')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="col-span-6 sm:col-span-3 mt-4">
   <label for="category_id" class="block text-sm font-medium text-gray-700">
@@ -136,6 +178,9 @@
     <option value="{{ $category->id }}">{{ $category->name }}</option>
     @endforeach
   </select>
+  @error('category_id')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="col-span-6 sm:col-span-3 mt-4">
   <label for="provider_id" class="block text-sm font-medium text-gray-700">
@@ -147,6 +192,9 @@
     <option value="{{ $provider->id }}">{{ $provider->name }}</option>
     @endforeach
   </select>
+  @error('provider_id')
+    <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+  @enderror
 </div>
 <div class="col-span-6 sm:col-span-3 mt-4">
   <label for="status" class="block text-sm font-medium text-gray-700">
@@ -179,6 +227,9 @@
       </label>
       <span id="file-chosen" class="flex items-center mx-2 font-light"></span>
     </div>
+    @error('image')
+      <div class="text-sm font-light mt-2 p-2 bg-red-200 text-red-500 rounded-lg">{{ $message }}</div>
+    @enderror
   </div>
 </div>
 <!-- End Form for Edit -->

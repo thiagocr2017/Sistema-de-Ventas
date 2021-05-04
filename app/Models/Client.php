@@ -14,6 +14,8 @@ class Client extends Model
         'dni',
         'ruc',
         'address',
+        'state',
+        'country',
         'phone',
         'email'
     ];

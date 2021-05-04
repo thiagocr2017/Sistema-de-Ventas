@@ -57,15 +57,15 @@
       <div class="table-row-group">
         @foreach ($categories as $category)
           <tr class="table-row divider-y">
-            <td class="table-cell">
+            <td class="table-cell truncate">
               <div class="text-sm font-medium text-gray-900">
                 <a href="{{route('categories.show', $category)}}" class=" text-indigo-500" title="Show">
                 {{$category->name}}</a>
               </div>
             </td>
-            <td class="table-cell">
+            <td class="table-cell truncate">
             <div class="text-sm text-gray-500 font-light">
-              <p class="truncate">{{$category->description}}</p>
+              <p>{{$category->description}}</p>
             </div>
             </td>
             <td class="table-cell">

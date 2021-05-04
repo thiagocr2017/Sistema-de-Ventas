@@ -1,5 +1,5 @@
 @extends('components.layout')
-@section('title', 'Nueva Proveedor')
+@section('title', 'Nuevo Proveedor')
 @section('breadcrumbs')
     {{ Breadcrumbs::render('providers.create') }}
 @endsection
@@ -7,7 +7,7 @@
 <div class="card mb-4">
   <div class="card-head flex-col">
     <h3 class="text-lg font-medium text-gray-900">
-      Nueva Proveedor
+      Nuevo Proveedor
     </h3>
     <p class="mt-1 max-w-2xl text-xs text-gray-500">
       Digita un nombre e decripción para él proveedor.

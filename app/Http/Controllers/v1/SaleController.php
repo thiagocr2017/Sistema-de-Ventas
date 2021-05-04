@@ -12,7 +12,7 @@ class SaleController extends Controller
     public function index()
     {
         //
-        $sales = Sale::paginate(10);
+        $sales = Sale::orderBy('id', 'desc')->paginate(10);
         return view('sale.index', compact('sales'));
     }
 
